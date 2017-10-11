@@ -11,6 +11,7 @@
 > * 服务端：同步异常发预警邮件；
 > * 服务端：修复bat文件无法在win10运行的问题；
 
+[客户端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375074/canal.canalClientEx-1.0.24.zip)   [服务端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)
 
 ##开始使用
 
