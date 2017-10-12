@@ -1,8 +1,12 @@
 # 数据同步工具CanalClientEx
-
 ------
+  典型应用场景：
 
-本项目基于**canal 1.0.24**最新版基础上修改，扩展了服务端和客户端的一些功能，主要包含：
+> * 跨机房的整个数据库实时备份；
+> * 数据库表实时变动监控与通知（比如通知刷新缓存，表结构修改发送到邮件组等）；
+> * 数据库表不完全一样的实时同步：比如需定义字段映射，或生成一些辅助字段（比如拼音码，简拼，简单计算映射等）；
+
+  本项目基于**canal 1.0.24**最新版基础上修改，扩展了服务端和客户端的一些功能，主要包含：
 > * 客户端：数据库镜像备份（解决扩机房的数据同步问题）；
 > * 客户端：数据库表的映射同步（如自动生成拼音码，简拼，字段计算等）；
 > * 客户端：数据库指定表的数据变动通知到Java类；
@@ -11,9 +15,9 @@
 > * 服务端：同步异常发预警邮件；
 > * 服务端：修复bat文件无法在win10运行的问题；
 
-[客户端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375074/canal.canalClientEx-1.0.24.zip)   [服务端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)
+[客户端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375074/canal.canalClientEx-1.0.24.zip)   [服务端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)，点击加入QQ群讨论：[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
 
-##开始使用
+## 开始使用
 
 * 确保MySQL5.5+，并启动了binlog；
 * 下载canal.deployer-1.0.24.tar.gz(服务端）,canal.canalClientEx-1.0.24.tar.gz(客户端）
@@ -22,7 +26,7 @@
     * Windows：服务端（启动bin\startup.bat即可），客户端（启动bin\startup.bat即可）
     * Linux：确保bin目录下的sh文件有执行权限，服务端（启动bin\startup.sh即可），客户端（启动bin\startup.sh即可）
 
-##服务端增强
+## 服务端增强
 
 * 编译：
 mvn clean install -Dmaven.test.skip -Denv=release
@@ -32,7 +36,7 @@ redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.
 
 * 新增出错时的邮件预警
 
-##客户端增强
+## 客户端增强
 * 支持数据库镜像备份,config.xml中节点的配置信息如下：
 ```xml
     <node name="test" desc="test mirror db">
@@ -77,12 +81,12 @@ redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.
 				<alarm stype="ddl" type="email">
 					<title>邮件标题#{tableName}表的字段发生了变化</title>
 					<body>#{tableName}表的字段发生了变化,执行的SQL:#{sql}</body>
-					<sendTo>jacon.xue@sumscope.com</sendTo>
+					<sendTo>xxx@xxx.com</sendTo>
 				</alarm>
 				<alarm stype="exception" type="email">
 					<title>同步数据#{source-scheme-name}.#{source-name}发生异常提醒</title>
 					<body>#{body}</body>
-					<sendTo>jacon.xue@sumscope.com</sendTo>
+					<sendTo>xxx@xxx.com</sendTo>
 				</alarm>
 			</alarms>
 	</node>
