@@ -1,52 +1,52 @@
-# Êı¾İÍ¬²½¹¤¾ßCanalClientEx
+# æ•°æ®åŒæ­¥å·¥å…·CanalClientEx
 ------
-  µäĞÍÓ¦ÓÃ³¡¾°£º
+  å…¸å‹åº”ç”¨åœºæ™¯ï¼š
 
-> * ¿ç»ú·¿µÄÕû¸öÊı¾İ¿âÊµÊ±±¸·İ£»
-> * Êı¾İ¿â±íÊµÊ±±ä¶¯¼à¿ØÓëÍ¨Öª£¨±ÈÈçÍ¨ÖªË¢ĞÂ»º´æ£¬±í½á¹¹ĞŞ¸Ä·¢ËÍµ½ÓÊ¼ş×éµÈ£©£»
-> * Êı¾İ¿â±í²»ÍêÈ«Ò»ÑùµÄÊµÊ±Í¬²½£º±ÈÈçĞè¶¨Òå×Ö¶ÎÓ³Éä£¬»òÉú³ÉÒ»Ğ©¸¨Öú×Ö¶Î£¨±ÈÈçÆ´ÒôÂë£¬¼òÆ´£¬¼òµ¥¼ÆËãÓ³ÉäµÈ£©£»
+> * è·¨æœºæˆ¿çš„æ•´ä¸ªæ•°æ®åº“å®æ—¶å¤‡ä»½ï¼›
+> * æ•°æ®åº“è¡¨å®æ—¶å˜åŠ¨ç›‘æ§ä¸é€šçŸ¥ï¼ˆæ¯”å¦‚é€šçŸ¥åˆ·æ–°ç¼“å­˜ï¼Œè¡¨ç»“æ„ä¿®æ”¹å‘é€åˆ°é‚®ä»¶ç»„ç­‰ï¼‰ï¼›
+> * æ•°æ®åº“è¡¨ä¸å®Œå…¨ä¸€æ ·çš„å®æ—¶åŒæ­¥ï¼šæ¯”å¦‚éœ€å®šä¹‰å­—æ®µæ˜ å°„ï¼Œæˆ–ç”Ÿæˆä¸€äº›è¾…åŠ©å­—æ®µï¼ˆæ¯”å¦‚æ‹¼éŸ³ç ï¼Œç®€æ‹¼ï¼Œç®€å•è®¡ç®—æ˜ å°„ç­‰ï¼‰ï¼›
 
-  ±¾ÏîÄ¿»ùÓÚ**canal 1.0.24**×îĞÂ°æ»ù´¡ÉÏĞŞ¸Ä£¬À©Õ¹ÁË·şÎñ¶ËºÍ¿Í»§¶ËµÄÒ»Ğ©¹¦ÄÜ£¬Ö÷Òª°üº¬£º
-> * ¿Í»§¶Ë£ºÊı¾İ¿â¾µÏñ±¸·İ£¨½â¾öÀ©»ú·¿µÄÊı¾İÍ¬²½ÎÊÌâ£©£»
-> * ¿Í»§¶Ë£ºÊı¾İ¿â±íµÄÓ³ÉäÍ¬²½£¨Èç×Ô¶¯Éú³ÉÆ´ÒôÂë£¬¼òÆ´£¬×Ö¶Î¼ÆËãµÈ£©£»
-> * ¿Í»§¶Ë£ºÊı¾İ¿âÖ¸¶¨±íµÄÊı¾İ±ä¶¯Í¨Öªµ½JavaÀà£»
-> * ¿Í»§¶Ë£ºÖ§³ÖÊı¾İ¿â±íMySQL->MS SQLµÄÍ¬²½£»
-> * ·şÎñ¶Ë£ºpositionÎ»ÖÃÍ¬²½µ½Redis¼¯Èº£¨ÒÔ±ãÔÚFileÇé¿öÏÂµ±·şÎñÆ÷Ó²ÅÌ»µµôµÄÇé¿öÏÂÎŞ·¨ÔÙÍ¬²½£©
-> * ·şÎñ¶Ë£ºÍ¬²½Òì³£·¢Ô¤¾¯ÓÊ¼ş£»
-> * ·şÎñ¶Ë£ºĞŞ¸´batÎÄ¼şÎŞ·¨ÔÚwin10ÔËĞĞµÄÎÊÌâ£»
+  æœ¬é¡¹ç›®åŸºäº**canal 1.0.24**æœ€æ–°ç‰ˆåŸºç¡€ä¸Šä¿®æ”¹ï¼Œæ‰©å±•äº†æœåŠ¡ç«¯å’Œå®¢æˆ·ç«¯çš„ä¸€äº›åŠŸèƒ½ï¼Œä¸»è¦åŒ…å«ï¼š
+> * å®¢æˆ·ç«¯ï¼šæ•°æ®åº“é•œåƒå¤‡ä»½ï¼ˆè§£å†³æ‰©æœºæˆ¿çš„æ•°æ®åŒæ­¥é—®é¢˜ï¼‰ï¼›
+> * å®¢æˆ·ç«¯ï¼šæ•°æ®åº“è¡¨çš„æ˜ å°„åŒæ­¥ï¼ˆå¦‚è‡ªåŠ¨ç”Ÿæˆæ‹¼éŸ³ç ï¼Œç®€æ‹¼ï¼Œå­—æ®µè®¡ç®—ç­‰ï¼‰ï¼›
+> * å®¢æˆ·ç«¯ï¼šæ•°æ®åº“æŒ‡å®šè¡¨çš„æ•°æ®å˜åŠ¨é€šçŸ¥åˆ°Javaç±»ï¼›
+> * å®¢æˆ·ç«¯ï¼šæ”¯æŒæ•°æ®åº“è¡¨MySQL->MS SQLçš„åŒæ­¥ï¼›
+> * æœåŠ¡ç«¯ï¼špositionä½ç½®åŒæ­¥åˆ°Redisé›†ç¾¤ï¼ˆä»¥ä¾¿åœ¨Fileæƒ…å†µä¸‹å½“æœåŠ¡å™¨ç¡¬ç›˜åæ‰çš„æƒ…å†µä¸‹æ— æ³•å†åŒæ­¥ï¼‰
+> * æœåŠ¡ç«¯ï¼šåŒæ­¥å¼‚å¸¸å‘é¢„è­¦é‚®ä»¶ï¼›
+> * æœåŠ¡ç«¯ï¼šä¿®å¤batæ–‡ä»¶æ— æ³•åœ¨win10è¿è¡Œçš„é—®é¢˜ï¼›
 
-[¿Í»§¶Ë1.0.24ÏÂÔØ](https://github.com/kongshanxuelin/canalClientEx/files/1375074/canal.canalClientEx-1.0.24.zip)   [·şÎñ¶Ë1.0.24ÏÂÔØ](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)£¬µã»÷¼ÓÈëQQÈºÌÖÂÛ£º[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
+[å®¢æˆ·ç«¯1.0.24ä¸‹è½½](https://github.com/kongshanxuelin/canalClientEx/blob/master/canal.canalClientEx-1.0.24.zip)   [æœåŠ¡ç«¯1.0.24ä¸‹è½½](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)ï¼Œç‚¹å‡»åŠ å…¥QQç¾¤è®¨è®ºï¼š[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
 
-## ¿ªÊ¼Ê¹ÓÃ
+## å¼€å§‹ä½¿ç”¨
 
-* È·±£MySQL5.5+£¬²¢Æô¶¯ÁËbinlog£»
-* ÏÂÔØcanal.deployer-1.0.24.tar.gz(·şÎñ¶Ë£©,canal.canalClientEx-1.0.24.tar.gz(¿Í»§¶Ë£©
-* ½âÑ¹²¢ÅäÖÃ£º°´ĞèÔö¼ÓÍ¬²½ÊµÀı£¬ÔÚconfÄ¿Â¼ÏÂÌí¼Ó¶à¸öÎÄ¼ş¼Ğ¼´¿É£¬²¢ÅäÖÃÃ¿¸öÄ¿Â¼ÏÂµÄµÄinstance.properties£¬ÈçexampleÄ¿Â¼ÏÂÅäÖÃcanal.instance.mysql.slaveId(²»¿ÉÖØ¸´£©£¬Êı¾İ¿âĞÅÏ¢£ºcanal.instance.master.address£¬canal.instance.dbUsername£¬canal.instance.dbPassword£»
-* ÔËĞĞ
-    * Windows£º·şÎñ¶Ë£¨Æô¶¯bin\startup.bat¼´¿É£©£¬¿Í»§¶Ë£¨Æô¶¯bin\startup.bat¼´¿É£©
-    * Linux£ºÈ·±£binÄ¿Â¼ÏÂµÄshÎÄ¼şÓĞÖ´ĞĞÈ¨ÏŞ£¬·şÎñ¶Ë£¨Æô¶¯bin\startup.sh¼´¿É£©£¬¿Í»§¶Ë£¨Æô¶¯bin\startup.sh¼´¿É£©
+* ç¡®ä¿MySQL5.5+ï¼Œå¹¶å¯åŠ¨äº†binlogï¼›
+* ä¸‹è½½canal.deployer-1.0.24.tar.gz(æœåŠ¡ç«¯ï¼‰,canal.canalClientEx-1.0.24.tar.gz(å®¢æˆ·ç«¯ï¼‰
+* è§£å‹å¹¶é…ç½®ï¼šæŒ‰éœ€å¢åŠ åŒæ­¥å®ä¾‹ï¼Œåœ¨confç›®å½•ä¸‹æ·»åŠ å¤šä¸ªæ–‡ä»¶å¤¹å³å¯ï¼Œå¹¶é…ç½®æ¯ä¸ªç›®å½•ä¸‹çš„çš„instance.propertiesï¼Œå¦‚exampleç›®å½•ä¸‹é…ç½®canal.instance.mysql.slaveId(ä¸å¯é‡å¤ï¼‰ï¼Œæ•°æ®åº“ä¿¡æ¯ï¼šcanal.instance.master.addressï¼Œcanal.instance.dbUsernameï¼Œcanal.instance.dbPasswordï¼›
+* è¿è¡Œ
+    * Windowsï¼šæœåŠ¡ç«¯ï¼ˆå¯åŠ¨bin\startup.batå³å¯ï¼‰ï¼Œå®¢æˆ·ç«¯ï¼ˆå¯åŠ¨bin\startup.batå³å¯ï¼‰
+    * Linuxï¼šç¡®ä¿binç›®å½•ä¸‹çš„shæ–‡ä»¶æœ‰æ‰§è¡Œæƒé™ï¼ŒæœåŠ¡ç«¯ï¼ˆå¯åŠ¨bin\startup.shå³å¯ï¼‰ï¼Œå®¢æˆ·ç«¯ï¼ˆå¯åŠ¨bin\startup.shå³å¯ï¼‰
 
-## ·şÎñ¶ËÔöÇ¿
+## æœåŠ¡ç«¯å¢å¼º
 
-* ±àÒë£º
+* ç¼–è¯‘ï¼š
 mvn clean install -Dmaven.test.skip -Denv=release
 
-* ÔÚcanal.propertiesÖĞ¼ÓÈëÒÔÏÂÊôĞÔ»á½«positionĞÅÏ¢Í¬²½µ½Redis¼¯Èº£º
+* åœ¨canal.propertiesä¸­åŠ å…¥ä»¥ä¸‹å±æ€§ä¼šå°†positionä¿¡æ¯åŒæ­¥åˆ°Redisé›†ç¾¤ï¼š
 redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.215:7000,192.168.1.215:7001,192.168.1.215:7002
 
-* ĞÂÔö³ö´íÊ±µÄÓÊ¼şÔ¤¾¯
+* æ–°å¢å‡ºé”™æ—¶çš„é‚®ä»¶é¢„è­¦
 
-## ¿Í»§¶ËÔöÇ¿
-* Ö§³ÖÊı¾İ¿â¾µÏñ±¸·İ,config.xmlÖĞ½ÚµãµÄÅäÖÃĞÅÏ¢ÈçÏÂ£º
+## å®¢æˆ·ç«¯å¢å¼º
+* æ”¯æŒæ•°æ®åº“é•œåƒå¤‡ä»½,config.xmlä¸­èŠ‚ç‚¹çš„é…ç½®ä¿¡æ¯å¦‚ä¸‹ï¼š
 ```xml
     <node name="test" desc="test mirror db">
         <canal-server-mode>simple</canal-server-mode>  
 		<canal-server-ip>127.0.0.1</canal-server-ip>
 		<canal-server-port>PORT</canal-server-port>
     	<canal-server-inst>INSTNAME</canal-server-inst>
-		<!-- ÊÇ·ñÓĞĞ§ -->
+		<!-- æ˜¯å¦æœ‰æ•ˆ -->
 		<active>true</active>
-		<!-- Í¬²½µ½¿âµÄJDBCÅäÖÃ -->
+		<!-- åŒæ­¥åˆ°åº“çš„JDBCé…ç½® -->
 		<db-url><![CDATA[jdbc:mysql://IP:PORT/test?useUnicode=true&characterEncoding=UTF-8]]></db-url>
 		<db-driver>com.mysql.jdbc.Driver</db-driver>
 		<db-username>USER</db-username>
@@ -54,16 +54,16 @@ redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.
 		<db-schema>test</db-schema>
 	</node>
 ```
-* Ö§³Ö±íÊı¾İºÏ²¢Í¬²½£¬Ö§³Ö×Ö¶ÎÓ³Éä¶¨Òå£¬Ö§³ÖÍ¬²½Ô¤¾¯µÈ£º
+* æ”¯æŒè¡¨æ•°æ®åˆå¹¶åŒæ­¥ï¼Œæ”¯æŒå­—æ®µæ˜ å°„å®šä¹‰ï¼Œæ”¯æŒåŒæ­¥é¢„è­¦ç­‰ï¼š
 ```xml
 	<node name="test2" desc="test table mapping">
 			<canal-server-mode>simple</canal-server-mode>  
 			<canal-server-ip>127.0.0.1</canal-server-ip>
 			<canal-server-port>PORT</canal-server-port>
     	    <canal-server-inst>INSTNAME</canal-server-inst>
-			<!-- ÊÇ·ñÓĞĞ§ -->
+			<!-- æ˜¯å¦æœ‰æ•ˆ -->
 			<active>true</active>
-			<!-- Í¬²½µ½¿âµÄJDBCÅäÖÃ -->
+			<!-- åŒæ­¥åˆ°åº“çš„JDBCé…ç½® -->
 			<db-url><![CDATA[jdbc:mysql://IP:PORT/test?useUnicode=true&characterEncoding=UTF-8]]></db-url>
 			<db-driver>com.mysql.jdbc.Driver</db-driver>
 			<db-username>USER</db-username>
@@ -79,19 +79,19 @@ redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.
 			</tables>
 			<alarms>
 				<alarm stype="ddl" type="email">
-					<title>ÓÊ¼ş±êÌâ#{tableName}±íµÄ×Ö¶Î·¢ÉúÁË±ä»¯</title>
-					<body>#{tableName}±íµÄ×Ö¶Î·¢ÉúÁË±ä»¯,Ö´ĞĞµÄSQL:#{sql}</body>
+					<title>é‚®ä»¶æ ‡é¢˜#{tableName}è¡¨çš„å­—æ®µå‘ç”Ÿäº†å˜åŒ–</title>
+					<body>#{tableName}è¡¨çš„å­—æ®µå‘ç”Ÿäº†å˜åŒ–,æ‰§è¡Œçš„SQL:#{sql}</body>
 					<sendTo>xxx@xxx.com</sendTo>
 				</alarm>
 				<alarm stype="exception" type="email">
-					<title>Í¬²½Êı¾İ#{source-scheme-name}.#{source-name}·¢ÉúÒì³£ÌáĞÑ</title>
+					<title>åŒæ­¥æ•°æ®#{source-scheme-name}.#{source-name}å‘ç”Ÿå¼‚å¸¸æé†’</title>
 					<body>#{body}</body>
 					<sendTo>xxx@xxx.com</sendTo>
 				</alarm>
 			</alarms>
 	</node>
 ```
-* Ö§³Ö×Ô¶¨ÒåÀàµÄÍ¬²½ÕìÌı
+* æ”¯æŒè‡ªå®šä¹‰ç±»çš„åŒæ­¥ä¾¦å¬
 ```xml
 	<node name="test3" desc="sync_gjk_eform">
 		<canal-server-mode>simple</canal-server-mode>  
