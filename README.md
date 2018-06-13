@@ -15,7 +15,7 @@
 > * 服务端：同步异常发预警邮件；
 > * 服务端：修复bat文件无法在win10运行的问题；
 
-[客户端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375074/canal.canalClientEx-1.0.24.zip)   [服务端1.0.24下载](https://github.com/kongshanxuelin/canalClientEx/files/1375087/canal.deployer-1.0.24.tar.gz)，点击加入QQ群讨论：[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
+点击加入QQ群讨论：[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
 
 ## 开始使用
 
@@ -37,6 +37,7 @@ redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.
 * 新增出错时的邮件预警
 
 ## 客户端增强
+* 2018-06-13新增：新增批量同步数据时秒级同步到库；
 * 支持数据库镜像备份,config.xml中节点的配置信息如下：
 ```xml
     <node name="test" desc="test mirror db">
