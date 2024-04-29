@@ -1,110 +1,73 @@
-# 数据同步工具CanalClientEx
-------
-  典型应用场景：
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-> * 跨机房的整个数据库实时备份；
-> * 数据库表实时变动监控与通知（比如通知刷新缓存，表结构修改发送到邮件组等）；
-> * 数据库表不完全一样的实时同步：比如需定义字段映射，或生成一些辅助字段（比如拼音码，简拼，简单计算映射等）；
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  本项目基于**canal 1.0.24**最新版基础上修改，扩展了服务端和客户端的一些功能，主要包含：
-> * 客户端：数据库镜像备份（解决扩机房的数据同步问题）；
-> * 客户端：数据库表的映射同步（如自动生成拼音码，简拼，字段计算等）；
-> * 客户端：数据库指定表的数据变动通知到Java类；
-> * 客户端：支持数据库表MySQL->MS SQL的同步；
-> * 服务端：position位置同步到Redis集群（以便在File情况下当服务器硬盘坏掉的情况下无法再同步）
-> * 服务端：同步异常发预警邮件；
-> * 服务端：修复bat文件无法在win10运行的问题；
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-讨论：[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5onpjJC)
+## Description
 
-## 开始使用
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-* 确保MySQL5.5+，并启动了binlog；
-* 下载canal.deployer-1.0.24.tar.gz(服务端）,canal.canalClientEx-1.0.24.tar.gz(客户端）
-* 解压并配置：按需增加同步实例，在conf目录下添加多个文件夹即可，并配置每个目录下的的instance.properties，如example目录下配置canal.instance.mysql.slaveId(不可重复），数据库信息：canal.instance.master.address，canal.instance.dbUsername，canal.instance.dbPassword；
-* 运行
-    * Windows：服务端（启动bin\startup.bat即可），客户端（启动bin\startup.bat即可）
-    * Linux：确保bin目录下的sh文件有执行权限，服务端（启动bin\startup.sh即可），客户端（启动bin\startup.sh即可）
+## Installation
 
-## 服务端增强
-
-* 编译：
-mvn clean install -Dmaven.test.skip -Denv=release
-
-* 在canal.properties中加入以下属性会将position信息同步到Redis集群：
-redis.server=192.168.1.170:7000,192.168.1.170:7001,192.168.1.170:7002,192.168.1.215:7000,192.168.1.215:7001,192.168.1.215:7002
-
-* 新增出错时的邮件预警
-
-## 客户端增强
-* 2018-06-13:新增大数据同步时秒级入库
-* 支持数据库镜像备份,config.xml中节点的配置信息如下：
-```xml
-    <node name="test" desc="test mirror db">
-        <canal-server-mode>simple</canal-server-mode>  
-		<canal-server-ip>127.0.0.1</canal-server-ip>
-		<canal-server-port>PORT</canal-server-port>
-    	<canal-server-inst>INSTNAME</canal-server-inst>
-		<!-- 是否有效 -->
-		<active>true</active>
-		<!-- 同步到库的JDBC配置 -->
-		<db-url><![CDATA[jdbc:mysql://IP:PORT/test?useUnicode=true&characterEncoding=UTF-8]]></db-url>
-		<db-driver>com.mysql.jdbc.Driver</db-driver>
-		<db-username>USER</db-username>
-		<db-password>PASSWORD</db-password>
-		<db-schema>test</db-schema>
-	</node>
+```bash
+$ yarn install
 ```
-* 支持表数据合并同步，支持字段映射定义，支持同步预警等：
-```xml
-	<node name="test2" desc="test table mapping">
-			<canal-server-mode>simple</canal-server-mode>  
-			<canal-server-ip>127.0.0.1</canal-server-ip>
-			<canal-server-port>PORT</canal-server-port>
-    	    <canal-server-inst>INSTNAME</canal-server-inst>
-			<!-- 是否有效 -->
-			<active>true</active>
-			<!-- 同步到库的JDBC配置 -->
-			<db-url><![CDATA[jdbc:mysql://IP:PORT/test?useUnicode=true&characterEncoding=UTF-8]]></db-url>
-			<db-driver>com.mysql.jdbc.Driver</db-driver>
-			<db-username>USER</db-username>
-			<db-password>PASSWORD</db-password>
-			<tables>
-				<table source-scheme-name="test" source-name="test" dest-name="test_dest" ddlSync='true' rule="AND" dest-name-pri="df" >
-					<fields>
-						<field name="df" text="df" />
-						<field name="dff" type="py" text="dff"></field>
-						<field name="c2" type="el" text="df*2"/>
-					</fields>
-				</table>
-			</tables>
-			<alarms>
-				<alarm stype="ddl" type="email">
-					<title>邮件标题#{tableName}表的字段发生了变化</title>
-					<body>#{tableName}表的字段发生了变化,执行的SQL:#{sql}</body>
-					<sendTo>xxx@xxx.com</sendTo>
-				</alarm>
-				<alarm stype="exception" type="email">
-					<title>同步数据#{source-scheme-name}.#{source-name}发生异常提醒</title>
-					<body>#{body}</body>
-					<sendTo>xxx@xxx.com</sendTo>
-				</alarm>
-			</alarms>
-	</node>
+
+## Running the app
+
+```bash
+# development
+$ yarn run start
+
+# watch mode
+$ yarn run start:dev
+
+# production mode
+$ yarn run start:prod
 ```
-* 支持自定义类的同步侦听
-```xml
-	<node name="test3" desc="sync_gjk_eform">
-		<canal-server-mode>simple</canal-server-mode>  
-		<canal-server-ip>IP</canal-server-ip>
-		<canal-server-port>PORT</canal-server-port>
-		<canal-server-inst>INSTNAME</canal-server-inst>
-		<active>true</active>
-		<db-url>jdbc:mysql://IP:PORT/db_cdb?useUnicode=true&amp;characterEncoding=UTF-8</db-url>
-		<db-driver>com.mysql.jdbc.Driver</db-driver>
-		<db-username>USER</db-username>
-		<db-password>PASSWORD</db-password>
-		<db-schema>xxxx</db-schema>
-		<db-trigger>com.xxx.yyy.TCustomerTableTrigger</db-trigger>
-	</node>
+
+## Test
+
+```bash
+# unit tests
+$ yarn run test
+
+# e2e tests
+$ yarn run test:e2e
+
+# test coverage
+$ yarn run test:cov
 ```
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](LICENSE).
